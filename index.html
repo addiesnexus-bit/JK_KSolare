@@ -51,6 +51,28 @@
             animation: fadeInPage 0.8s ease-out forwards;
         }
 
+        /* Language Toggle Styling */
+        .lang-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+            background: var(--surface);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .lang-toggle:active {
+            transform: scale(0.95);
+        }
+
         /* Entrance Animation */
         @keyframes fadeInPage {
             0% { opacity: 0; transform: translateY(20px); }
@@ -181,6 +203,9 @@
 
     <div class="app-container">
         
+        <!-- Translation Toggle -->
+        <button class="lang-toggle" id="langToggle">English</button>
+
         <div class="header">
             <!-- Decorative Sun SVG -->
             <svg class="sun-decor" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -198,28 +223,35 @@
         </div>
 
         <div class="content">
-            <p>नमस्कार.. KSolare परिवार में आपका स्वागत है। नया KSolare इन्वर्टर खरीदने पर आपको बहुत बधाई।</p>
+            <p data-hi="नमस्कार.. KSolare परिवार में आपका स्वागत है। नया KSolare इन्वर्टर खरीदने पर आपको बहुत बधाई।" data-en="Namaskar.. Welcome to the KSolare family. Congratulations on purchasing your new KSolare inverter.">नमस्कार.. KSolare परिवार में आपका स्वागत है। नया KSolare इन्वर्टर खरीदने पर आपको बहुत बधाई।</p>
             
-            <p>KSolare भारत का सबसे भरोसेमंद और सबसे ज्यादा बिकने वाला ग्रिड-टाई इन्वर्टर है। आपका यह <span class="highlight" id="val-kw"></span> किलोवाट <span class="highlight" id="val-mppt"></span> MPPT स्ट्रिंग इन्वर्टर <span class="highlight" id="val-pw1"></span> वॉट <span class="highlight" id="val-pt1"></span> के <span class="highlight" id="val-pc1"></span> पैनल या <span class="highlight" id="val-pw2"></span> वॉट <span class="highlight" id="val-pt2"></span> के <span class="highlight" id="val-pc2"></span> पैनल सपोर्ट करता है। कृपया ध्यान दें: इस सिस्टम की अधिकतम इनपुट PV वोल्टेज <span class="highlight" id="val-mv"></span>V है।</p>
+            <p>
+                <span data-hi="KSolare भारत का सबसे भरोसेमंद और सबसे ज्यादा बिकने वाला ग्रिड-टाई इन्वर्टर है। आपका यह " data-en="KSolare is India's most trusted and highest-selling grid-tie inverter. Your ">KSolare भारत का सबसे भरोसेमंद और सबसे ज्यादा बिकने वाला ग्रिड-टाई इन्वर्टर है। आपका यह </span><span class="highlight" id="val-kw"></span> <span data-hi=" किलोवाट " data-en=" kW "> किलोवाट </span><span class="highlight" id="val-mppt"></span> <span data-hi=" MPPT स्ट्रिंग इन्वर्टर " data-en=" MPPT string inverter supports "> MPPT स्ट्रिंग इन्वर्टर </span><span class="highlight" id="val-pw1"></span> <span data-hi=" वॉट " data-en=" Watt "> वॉट </span><span class="highlight" id="val-pt1"></span> <span data-hi=" के " data-en=" "> के </span><span class="highlight" id="val-pc1"></span> <span data-hi=" पैनल या " data-en=" panels or "> पैनल या </span><span class="highlight" id="val-pw2"></span> <span data-hi=" वॉट " data-en=" Watt "> वॉट </span><span class="highlight" id="val-pt2"></span> <span data-hi=" के " data-en=" "> के </span><span class="highlight" id="val-pc2"></span> <span data-hi=" पैनल सपोर्ट करता है। कृपया ध्यान दें: इस सिस्टम की अधिकतम इनपुट PV वोल्टेज " data-en=" panels. Please note: The maximum input PV voltage of this system is "> पैनल सपोर्ट करता है। कृपया ध्यान दें: इस सिस्टम की अधिकतम इनपुट PV वोल्टेज </span><span class="highlight" id="val-mv"></span>V <span data-hi=" है।" data-en="."> है।</span>
+            </p>
 
-            <p>अगर आपका सोलर सिस्टम ठीक से काम न करे, तो पहले अपने सोलर वेंडर से संपर्क करें। यदि KSolare प्रोडक्ट में कोई समस्या हो, तो वेंडर से प्रारंभिक जांच के बाद और सिस्टम को ऑनलाइन रखते हुए <strong>8530111222 या 7030955501</strong> पर शिकायत दर्ज करवाएं। ध्यान रहे: शिकायत तभी दर्ज होगी जब प्रारंभिक जांच हो चुकी हो और सिस्टम ऑनलाइन हो।</p>
+            <p data-hi="अगर आपका सोलर सिस्टम ठीक से काम न करे, तो पहले अपने सोलर वेंडर से संपर्क करें। यदि KSolare प्रोडक्ट में कोई समस्या हो, तो वेंडर से प्रारंभिक जांच के बाद और सिस्टम को ऑनलाइन रखते हुए 8530111222 या 7030955501 पर शिकायत दर्ज करवाएं। ध्यान रहे: शिकायत तभी दर्ज होगी जब प्रारंभिक जांच हो चुकी हो और सिस्टम ऑनलाइन हो।" data-en="If your solar system is not working correctly, please first contact your solar vendor. If there is an issue with the KSolare product, register a complaint at 8530111222 or 7030955501 after a preliminary check by the vendor and while keeping the system online. Note: A complaint will only be registered once the preliminary check is complete and the system is online.">अगर आपका सोलर सिस्टम ठीक से काम न करे, तो पहले अपने सोलर वेंडर से संपर्क करें। यदि KSolare प्रोडक्ट में कोई समस्या हो, तो वेंडर से प्रारंभिक जांच के बाद और सिस्टम को ऑनलाइन रखते हुए <strong>8530111222 या 7030955501</strong> पर शिकायत दर्ज करवाएं। ध्यान रहे: शिकायत तभी दर्ज होगी जब प्रारंभिक जांच हो चुकी हो और सिस्टम ऑनलाइन हो।</p>
 
-            <p>KSolare इन्वर्टर पर आपको 10 साल की वारंटी मिलती है। वारंटी की नियम व शर्तें जानने के लिए और 1 साल की अतिरिक्त एक्सटेंडेड वारंटी registration के लिए कृपया 1 दबाएं।</p>
+            <p data-hi="KSolare इन्वर्टर पर आपको 10 साल की स्टैण्डर्ड वारंटी मिलती है। वारंटी की नियम व शर्तें कृपया गारेंटी कार्ड से पढ़े और 1 साल की अतिरिक्त एक्सटेंडेड वारंटी registration के लिए कृपया 1 दबाएं।" data-en="You get a 10-year standard warranty on KSolare inverters.Please read the warranty terms and conditions on the guarantee card  and for a 1-year extra extended warranty registration, please press 1.">KSolare इन्वर्टर पर आपको 10 साल की स्टैण्डर्ड वारंटी मिलती है। वारंटी की नियम व शर्तें कृपया गारेंटी कार्ड से पढ़े और 1 साल की अतिरिक्त एक्सटेंडेड वारंटी registration के लिए कृपया 1 दबाएं।</p>
             <a href="https://forms.gle/wDGL7J4j9xxMMaXg7" class="btn ripple-btn">
-                <span class="btn-icon">📋</span> 1. वारंटी रजिस्ट्रेशन करें
+                <span class="btn-icon">📋</span> <span data-hi="वारंटी रजिस्ट्रेशन करें" data-en="Register Warranty">वारंटी रजिस्ट्रेशन करें</span>
             </a>
 
-            <p>फ्री यूरोप ट्रिप लकी ड्रॉ में भाग लेने के लिए, आप और आपके सोलर वेंडर, KSolare इन्वर्टर के साथ अपनी फोटो एक अच्छे कैप्शन के साथ सोशल मीडिया पर पोस्ट करें और KSolare को टैग करें। इसके बाद रजिस्ट्रेशन पूरा करने के लिए 2 दबाएं।</p>
+            <p data-hi="फ्री यूरोप ट्रिप लकी ड्रॉ में भाग लेने के लिए, आप और आपके सोलर वेंडर, KSolare इन्वर्टर के साथ अपनी फोटो एक अच्छे कैप्शन के साथ सोशल मीडिया पर पोस्ट करें और KSolare को टैग करें। इसके बाद रजिस्ट्रेशन पूरा करने के लिए 2 दबाएं।" data-en="To participate in the free Europe Trip Lucky Draw, you and your solar vendor should post your photo with the KSolare inverter along with a good caption on social media and tag KSolare. Then press 2 to complete registration.">फ्री यूरोप ट्रिप लकी ड्रॉ में भाग लेने के लिए, आप और आपके सोलर वेंडर, KSolare इन्वर्टर के साथ अपनी फोटो एक अच्छे कैप्शन के साथ सोशल मीडिया पर पोस्ट करें और KSolare को टैग करें। इसके बाद रजिस्ट्रेशन पूरा करने के लिए 2 दबाएं।</p>
             <a href="https://forms.gle/DnvUrczwn58ioDKTA" class="btn ripple-btn">
-                <span class="btn-icon">🎉</span> 2. लकी ड्रॉ रजिस्ट्रेशन करें
+                <span class="btn-icon">🎉</span> <span data-hi="लकी ड्रॉ रजिस्ट्रेशन करें" data-en="Register for Lucky Draw">लकी ड्रॉ रजिस्ट्रेशन करें</span>
             </a>
 
-            <p>वाईफाई कॉन्फिग्रेशन में सहायता के लिए 3 दबाएं।</p>
+            <p data-hi="वाईफाई कॉन्फिग्रेशन में सहायता के लिए 3 दबाएं।" data-en="Press 3 for assistance with WiFi configuration.">वाईफाई कॉन्फिग्रेशन में सहायता के लिए 3 दबाएं।</p>
             <a href="https://youtu.be/N01722350Rs?si=DZ6r3VUCjROmQr7E" class="btn ripple-btn">
-                <span class="btn-icon">📶</span> 3. WiFi कॉन्फिगर करें
+                <span class="btn-icon">📶</span> <span data-hi="WiFi कॉन्फिगर करें" data-en="Configure WiFi">WiFi कॉन्फिगर करें</span>
             </a>
 
-            <p>KSolare परिवार से जुड़ने के लिए आपका हार्दिक आभार।</p>
+            <p data-hi="त्रुटि कोड और समस्या निवारण के लिए नीचे दबाएं।" data-en="For Error Codes and Troubleshooting, press below.">त्रुटि कोड और समस्या निवारण के लिए नीचे दबाएं।</p>
+            <a href="assets/images/error_pic.jpg" target="_blank" class="btn ripple-btn">
+                <span class="btn-icon">🛠️</span> <span data-hi="Error Code & Trouble Shooting" data-en="Error Code & Trouble Shooting">Error Code & Trouble Shooting</span>
+            </a>
+
+            <p data-hi="KSolare परिवार से जुड़ने के लिए आपका हार्दिक आभार।" data-en="Heartfelt thanks for joining the KSolare family.">KSolare परिवार से जुड़ने के लिए आपका हार्दिक आभार।</p>
         </div>
 
         <div class="footer">
@@ -237,11 +269,11 @@
             const defaults = {
                 kw: '3',
                 mppt: 'सिंगल',
-                pw1: '550',
-                pt1: 'Mono',
+                pw1: '540',
+                pt1: 'मोनो',
                 pc1: '6',
-                pw2: '600',
-                pt2: 'TopCon',
+                pw2: '550',
+                pt2: 'बाइफेशियल',
                 pc2: '5',
                 mv: '350'
             };
@@ -258,16 +290,24 @@
                 }
             });
 
+            // Language Toggle Logic
+            const langToggle = document.getElementById('langToggle');
+            let currentLang = 'hi';
+
+            langToggle.addEventListener('click', () => {
+                currentLang = currentLang === 'hi' ? 'en' : 'hi';
+                langToggle.textContent = currentLang === 'hi' ? 'English' : 'हिंदी';
+                
+                document.querySelectorAll('[data-hi]').forEach(el => {
+                    el.textContent = el.getAttribute(`data-${currentLang}`);
+                });
+            });
+
             // Ripple Effect Logic for Buttons
             const buttons = document.querySelectorAll('.ripple-btn');
             buttons.forEach(btn => {
                 btn.addEventListener('click', function(e) {
-                    // Logic to allow default navigation if a real URL is present
-                    // We only stop propagation for the ripple visual
-                    
                     const rect = this.getBoundingClientRect();
-                    
-                    // Handle both mouse and touch events
                     const clientX = e.clientX || (e.touches && e.touches[0].clientX) || rect.width / 2;
                     const clientY = e.clientY || (e.touches && e.touches[0].clientY) || rect.height / 2;
                     
@@ -277,18 +317,13 @@
                     const ripple = document.createElement('span');
                     ripple.classList.add('ripple');
                     
-                    // Calculate largest dimension to cover the button
                     const size = Math.max(rect.width, rect.height);
                     ripple.style.width = ripple.style.height = `${size}px`;
                     ripple.style.left = `${x - size / 2}px`;
                     ripple.style.top = `${y - size / 2}px`;
 
                     this.appendChild(ripple);
-
-                    // Clean up DOM after animation finishes
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
+                    setTimeout(() => ripple.remove(), 600);
                 });
             });
         });
