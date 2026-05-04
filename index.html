@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSolare - Welcome</title>
+    
+    <!-- Google Fonts: Noto Sans Devanagari -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FF6B00;
+            --primary-dark: #E66000;
+            --bg-color: #F0F4F8;
+            --surface: #FFFFFF;
+            --text-main: #2D3748;
+            --text-muted: #718096;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px 15px;
+        }
+
+        /* Mobile First Container */
+        .app-container {
+            max-width: 420px;
+            width: 100%;
+            background-color: var(--surface);
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            position: relative;
+            opacity: 0;
+            animation: fadeInPage 0.8s ease-out forwards;
+        }
+
+        /* Entrance Animation */
+        @keyframes fadeInPage {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header Area with Sun Decoration */
+        .header {
+            position: relative;
+            padding: 40px 20px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(255, 107, 0, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
+            overflow: hidden;
+        }
+
+        /* Subtle Sun SVG */
+        .sun-decor {
+            position: absolute;
+            top: -30px;
+            right: -30px;
+            width: 140px;
+            height: 140px;
+            opacity: 0.15;
+            pointer-events: none;
+            animation: rotateSun 60s linear infinite;
+        }
+
+        @keyframes rotateSun {
+            100% { transform: rotate(360deg); }
+        }
+
+        .logo {
+            max-width: 220px;
+            height: auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Content Area */
+        .content {
+            padding: 10px 25px 30px;
+            font-size: 15px;
+            line-height: 1.65;
+        }
+
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Call To Action Buttons */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: var(--primary);
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 15px 24px;
+            border-radius: 50px; /* Pill Shape */
+            font-size: 16px;
+            font-weight: 600;
+            margin: 10px 0 24px 0;
+            box-shadow: 0 6px 16px rgba(255, 107, 0, 0.25);
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            user-select: none;
+        }
+
+        .btn:hover {
+            box-shadow: 0 8px 20px rgba(255, 107, 0, 0.35);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+            box-shadow: 0 3px 8px rgba(255, 107, 0, 0.2);
+        }
+
+        .btn-icon {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        /* Ripple Effect */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(0);
+            animation: rippleAnim 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes rippleAnim {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: var(--text-muted);
+            border-top: 1px solid #E2E8F0;
+            background-color: #FAFCFF;
+        }
+
+        /* Responsive Tweaks */
+        @media (max-width: 360px) {
+            .content { padding: 10px 20px 25px; }
+            .btn { font-size: 15px; padding: 14px 20px; }
+            .logo { max-width: 180px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <div class="header">
+            <!-- Decorative Sun SVG -->
+            <svg class="sun-decor" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="25" fill="#FF6B00"/>
+                <path d="M50 0 L55 15 L50 20 L45 15 Z" fill="#FF6B00" transform="translate(0, 0)"/>
+                <path d="M50 0 L55 15 L50 20 L45 15 Z" fill="#FF6B00" transform="rotate(45 50 50)"/>
+                <path d="M50 0 L55 15 L50 20 L45 15 Z" fill="#FF6B00" transform="rotate(90 50 50)"/>
+                <path d="M50 0 L55 15 L50 20 L45 15 Z" fill="#FF6B00" transform="rotate(135 50 50)"/>
+                <path d="M50 0 L55 15 L50 20 L45 15 Z" fill="#FF6B00" transform="rotate(180 50 50)"/>
+                <path d="M50 0 L55 15 L50 20 L45 15 Z" fill="#FF6B00" transform="rotate(225 50 50)"/>
+                <path d="M50 0 L55 15 L50 20 L45 15 Z" fill="#FF6B00" transform="rotate(270 50 50)"/>
+                <path d="M50 0 L55 15 L50 20 L45 15 Z" fill="#FF6B00" transform="rotate(315 50 50)"/>
+            </svg>
+            <img src="http://ksolare.com/wp-content/uploads/2025/03/20250301_190029-e1741372790905-300x110.png" alt="KSolare Logo" class="logo" onerror="this.src='https://via.placeholder.com/300x110/ffffff/FF6B00?text=KSolare'">
+        </div>
+
+        <div class="content">
+            <p>नमस्कार.. KSolare परिवार में आपका स्वागत है। नया KSolare इन्वर्टर खरीदने पर आपको बहुत बधाई।</p>
+            
+            <p>KSolare भारत का सबसे भरोसेमंद और सबसे ज्यादा बिकने वाला ग्रिड-टाई इन्वर्टर है। आपका यह <span class="highlight" id="val-kw"></span> किलोवाट <span class="highlight" id="val-mppt"></span> MPPT स्ट्रिंग इन्वर्टर <span class="highlight" id="val-pw1"></span> वॉट <span class="highlight" id="val-pt1"></span> के <span class="highlight" id="val-pc1"></span> पैनल या <span class="highlight" id="val-pw2"></span> वॉट <span class="highlight" id="val-pt2"></span> के <span class="highlight" id="val-pc2"></span> पैनल सपोर्ट करता है। कृपया ध्यान दें: इस सिस्टम की अधिकतम इनपुट PV वोल्टेज <span class="highlight" id="val-mv"></span>V है।</p>
+
+            <p>अगर आपका सोलर सिस्टम ठीक से काम न करे, तो पहले अपने सोलर वेंडर से संपर्क करें। यदि KSolare प्रोडक्ट में कोई समस्या हो, तो वेंडर से प्रारंभिक जांच के बाद और सिस्टम को ऑनलाइन रखते हुए <strong>8530111222 या 7030955501</strong> पर शिकायत दर्ज करवाएं। ध्यान रहे: शिकायत तभी दर्ज होगी जब प्रारंभिक जांच हो चुकी हो और सिस्टम ऑनलाइन हो।</p>
+
+            <p>KSolare इन्वर्टर पर आपको 10 साल की वारंटी मिलती है। वारंटी की नियम व शर्तें जानने के लिए और 1 साल की अतिरिक्त एक्सटेंडेड वारंटी registration के लिए कृपया 1 दबाएं।</p>
+            <a href="https://forms.gle/wDGL7J4j9xxMMaXg7" class="btn ripple-btn">
+                <span class="btn-icon">📋</span> 1. वारंटी रजिस्ट्रेशन करें
+            </a>
+
+            <p>फ्री यूरोप ट्रिप लकी ड्रॉ में भाग लेने के लिए, आप और आपके सोलर वेंडर, KSolare इन्वर्टर के साथ अपनी फोटो एक अच्छे कैप्शन के साथ सोशल मीडिया पर पोस्ट करें और KSolare को टैग करें। इसके बाद रजिस्ट्रेशन पूरा करने के लिए 2 दबाएं।</p>
+            <a href="https://forms.gle/DnvUrczwn58ioDKTA" class="btn ripple-btn">
+                <span class="btn-icon">🎉</span> 2. लकी ड्रॉ रजिस्ट्रेशन करें
+            </a>
+
+            <p>वाईफाई कॉन्फिग्रेशन में सहायता के लिए 3 दबाएं।</p>
+            <a href="https://youtu.be/N01722350Rs?si=DZ6r3VUCjROmQr7E" class="btn ripple-btn">
+                <span class="btn-icon">📶</span> 3. WiFi कॉन्फिगर करें
+            </a>
+
+            <p>KSolare परिवार से जुड़ने के लिए आपका हार्दिक आभार।</p>
+        </div>
+
+        <div class="footer">
+            &copy; 2025 KSolare | All Rights Reserved
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // URL Parameters Parsing
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            // Hardcoded defaults as requested
+            const defaults = {
+                kw: '3',
+                mppt: 'सिंगल',
+                pw1: '550',
+                pt1: 'Mono',
+                pc1: '6',
+                pw2: '600',
+                pt2: 'TopCon',
+                pc2: '5',
+                mv: '350'
+            };
+
+            // Helper to get URL param or fallback
+            const getValue = (key) => urlParams.get(key) || defaults[key];
+
+            // Injecting Data into HTML
+            const ids = ['kw', 'mppt', 'pw1', 'pt1', 'pc1', 'pw2', 'pt2', 'pc2', 'mv'];
+            ids.forEach(id => {
+                const el = document.getElementById(`val-${id}`);
+                if(el) {
+                    el.textContent = getValue(id);
+                }
+            });
+
+            // Ripple Effect Logic for Buttons
+            const buttons = document.querySelectorAll('.ripple-btn');
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    // Logic to allow default navigation if a real URL is present
+                    // We only stop propagation for the ripple visual
+                    
+                    const rect = this.getBoundingClientRect();
+                    
+                    // Handle both mouse and touch events
+                    const clientX = e.clientX || (e.touches && e.touches[0].clientX) || rect.width / 2;
+                    const clientY = e.clientY || (e.touches && e.touches[0].clientY) || rect.height / 2;
+                    
+                    const x = clientX - rect.left;
+                    const y = clientY - rect.top;
+
+                    const ripple = document.createElement('span');
+                    ripple.classList.add('ripple');
+                    
+                    // Calculate largest dimension to cover the button
+                    const size = Math.max(rect.width, rect.height);
+                    ripple.style.width = ripple.style.height = `${size}px`;
+                    ripple.style.left = `${x - size / 2}px`;
+                    ripple.style.top = `${y - size / 2}px`;
+
+                    this.appendChild(ripple);
+
+                    // Clean up DOM after animation finishes
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
